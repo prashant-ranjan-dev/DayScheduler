@@ -1,0 +1,343 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #050816;
+  --card: #0b1020;
+  --card-soft: #111827;
+  --accent: #8b5cf6;
+  --accent-soft: #4c1d95;
+  --accent-green: #22c55e;
+  --accent-gold: #eab308;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --border-subtle: #1f2937;
+  --danger: #ef4444;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1f2937 0, #020617 45%, #000 100%);
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+}
+
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px 16px 40px;
+}
+
+/* Header */
+
+.header-card {
+  background: radial-gradient(circle at top left, #1f2937 0, #020617 60%);
+  border-radius: 22px;
+  padding: 16px 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  box-shadow: 0 22px 60px rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.header-card h1 {
+  margin: 0;
+  font-size: 30px;
+  letter-spacing: 0.03em;
+}
+
+.subtitle {
+  margin: 4px 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.status {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #a5b4fc;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+
+.btn {
+  border: none;
+  padding: 9px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  color: #fff;
+  box-shadow: 0 12px 30px rgba(129, 140, 248, 0.5);
+}
+
+.btn.primary:hover {
+  filter: brightness(1.05);
+}
+
+.btn.secondary {
+  background: rgba(148, 163, 184, 0.14);
+  color: var(--text-main);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.btn.danger {
+  background: var(--danger);
+  color: #f9fafb;
+}
+
+/* Top controls */
+
+.top-controls {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.hint {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.bottom-hint {
+  margin-top: 12px;
+  text-align: center;
+}
+
+code {
+  font-size: 11px;
+  background: #111827;
+  border-radius: 6px;
+  padding: 2px 5px;
+}
+
+/* Day Tabs */
+
+.day-tabs {
+  margin-top: 18px;
+  display: inline-flex;
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 999px;
+  padding: 3px;
+  border: 1px solid var(--border-subtle);
+}
+
+.day-tabs button {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.day-tabs button.active {
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  color: #f9fafb;
+}
+
+/* Schedule shell */
+
+.schedule-shell {
+  margin-top: 14px;
+  background: rgba(15, 23, 42, 0.95);
+  border-radius: 22px;
+  border: 1px solid var(--border-subtle);
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  overflow: hidden;
+  max-height: calc(100vh - 220px);
+}
+
+.hours-column {
+  border-right: 1px solid var(--border-subtle);
+  padding: 8px 0;
+  overflow-y: auto;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.hour-row {
+  height: 44px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 3px;
+}
+
+.tasks-column {
+  position: relative;
+  overflow-y: auto;
+}
+
+.task-list {
+  padding: 8px 10px 18px;
+  position: relative;
+}
+
+/* Task cards */
+
+.task-card {
+  background: radial-gradient(circle at top left, #1e293b 0, #020617 60%);
+  border-radius: 16px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border-left: 3px solid var(--accent);
+  border-top: 1px solid rgba(148, 163, 184, 0.3);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+  border-color: #a855f7;
+}
+
+.task-title {
+  font-size: 13px;
+  margin-bottom: 3px;
+}
+
+.task-time {
+  font-size: 11px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.task-time span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.task-pill-green {
+  border-left-color: var(--accent-green);
+}
+
+.task-pill-gold {
+  border-left-color: var(--accent-gold);
+}
+
+/* Modal */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+}
+
+.modal-backdrop.hidden {
+  display: none;
+}
+
+.modal {
+  width: 92%;
+  max-width: 380px;
+  background: #020617;
+  border-radius: 18px;
+  padding: 18px 18px 14px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 1);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.modal h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.modal label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 8px;
+  color: var(--text-muted);
+}
+
+.modal input,
+.modal select {
+  width: 100%;
+  margin-top: 4px;
+  border-radius: 10px;
+  border: 1px solid #1f2937;
+  background: #020617;
+  color: var(--text-main);
+  padding: 6px 8px;
+  font-size: 13px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Scrollbars (mobile friendly) */
+
+.hours-column::-webkit-scrollbar,
+.tasks-column::-webkit-scrollbar {
+  width: 4px;
+}
+
+.hours-column::-webkit-scrollbar-thumb,
+.tasks-column::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: 999px;
+}
+
+/* Responsive */
+
+@media (max-width: 640px) {
+  .header-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .schedule-shell {
+    max-height: calc(100vh - 260px);
+  }
+}
