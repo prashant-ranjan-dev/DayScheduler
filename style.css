@@ -163,8 +163,6 @@ code {
   color: #f9fafb;
 }
 
-/* Schedule shell */
-
 .schedule-shell {
   margin-top: 14px;
   background: rgba(15, 23, 42, 0.95);
@@ -173,16 +171,16 @@ code {
   display: grid;
   grid-template-columns: 64px minmax(0, 1fr);
   overflow: hidden;
-  max-height: calc(100vh - 220px);
 }
 
 .hours-column {
   border-right: 1px solid var(--border-subtle);
   padding: 8px 0;
-  overflow-y: auto;
+  overflow-y: visible;
   font-size: 11px;
   color: var(--text-muted);
 }
+
 
 .hour-row {
   height: 44px;
@@ -194,7 +192,7 @@ code {
 
 .tasks-column {
   position: relative;
-  overflow-y: auto;
+  overflow-y: visible;
 }
 
 .task-list {
