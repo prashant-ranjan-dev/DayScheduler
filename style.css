@@ -170,17 +170,22 @@ code {
   border: 1px solid var(--border-subtle);
   display: grid;
   grid-template-columns: 64px minmax(0, 1fr);
+  height: calc(100vh - 220px);
+  max-height: calc(100vh - 220px);
   overflow: hidden;
 }
+
 
 .hours-column {
   border-right: 1px solid var(--border-subtle);
   padding: 8px 0;
-  overflow-y: visible;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
   font-size: 11px;
   color: var(--text-muted);
 }
-
 
 .hour-row {
   height: 44px;
@@ -192,7 +197,9 @@ code {
 
 .tasks-column {
   position: relative;
-  overflow-y: visible;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .task-list {
@@ -323,18 +330,7 @@ code {
 }
 
 /* Responsive */
-
 @media (max-width: 640px) {
-  .header-card {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .header-actions {
-    width: 100%;
-    justify-content: flex-start;
-  }
-
   .schedule-shell {
     max-height: calc(100vh - 260px);
   }
